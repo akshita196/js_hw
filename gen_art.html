@@ -4,19 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>10 PRINT Generative Art</title>
-  <link rel="stylesheet" href="css/styles.css">
+<style>
+  body {
+    margin: 0;
+    color: white;
+    font-family: monospace;
+    font-size: 24px;
+    line-height: 1;
+    word-wrap: anywhere;
+  }
+</style>
 </head>
 
 <body></body>
 
-<script src="js/nn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library@main/build/nn.min.js"></script>
 <script>
   function tenPrint () {
-    const hue = nn.random(360)
+    const hue = nn.random(180)
     const clr = nn.hsl(hue, 100, 20)
-    const chars = '─ │ ┌ ┐ └ ┘ ├ ┤ ┬ ┴ ┼'
+    const chars = '/\\.~./\\..\\/~~\\/.../\\~'
     let pattern = ''
-    nn.times(600, () => pattern += nn.random(chars))
+    nn.times(1500, () => pattern += nn.random(chars))
     nn.get('body')
       .content(pattern)
       .css('background', clr)

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On Kawara Date Painting</title>
+</head>
+
+<body></body>
+
+<script>
+  function onKawara () {
+    document.body.style.background = 'seagreen'
+    document.body.style.height = '100vh'
+    document.body.style.display = 'grid'
+    document.body.style.justifyContent = 'center'
+    document.body.style.alignItems = 'center'
+
+    const d = new Date()
+    const day = d.getDate()
+    const months = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ]
+    const m = d.getMonth()
+    const month = months[m]
+    const year = d.getFullYear()
+    const dateString = `${year}: ${month}, ${day}`
+
+    const span = document.createElement('span')
+    span.textContent = dateString
+    span.style.color = 'pink'
+    span.style.fontSize = '13vw'
+    span.style.fontFamily = '"Courier New", "Times New Roman", Georgia, monospace'
+    document.body.appendChild(span)
+  }
+
+  window.addEventListener('load', onKawara)
+</script>
+</html>
