@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 PRINT Generative Art</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body></body>
+
+<script src="js/nn.min.js"></script>
+<script>
+  function tenPrint () {
+    const hue = nn.random(360)
+    const clr = nn.hsl(hue, 100, 20)
+    const chars = '─ │ ┌ ┐ └ ┘ ├ ┤ ┬ ┴ ┼'
+    let pattern = ''
+    nn.times(600, () => pattern += nn.random(chars))
+    nn.get('body')
+      .content(pattern)
+      .css('background', clr)
+  }
+
+  nn.on('load', tenPrint)
+  nn.on('click', tenPrint)
+</script>
+</html>
